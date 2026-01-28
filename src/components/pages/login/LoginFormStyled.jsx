@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const LoginFormStyled = styled.form`
   border: 1px solid blue;
@@ -20,4 +20,4 @@ export const LoginFormStyled = styled.form`
   button {
     background-color: orange;
   }
-`
+`;
