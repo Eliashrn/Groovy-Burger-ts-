@@ -1,6 +1,5 @@
-import React from "react"
-import styled from "styled-components"
-import { theme } from "../../theme"
+import styled from "styled-components";
+import { theme } from "../../theme/theme";
 
 export default function SelectInput({
   options,
@@ -22,7 +21,7 @@ export default function SelectInput({
         ))}
       </select>
     </SelectInputStyled>
-  )
+  );
 }
 
 const SelectInputStyled = styled.div`
@@ -50,7 +49,7 @@ const SelectInputStyled = styled.div`
     width: 100%;
     outline: 0;
   }
-` // commente/décommente une ligne CSS pour connaître son effet sur le composant
+`; // commente/décommente une ligne CSS pour connaître son effet sur le composant
 
 // Attention à deux props "value":
 // 1️⃣ value dans <select/> (valeur selectionnée) ==> onChange est lié à cette value

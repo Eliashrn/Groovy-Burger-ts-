@@ -1,12 +1,12 @@
-import styled from "styled-components"
-import { theme } from "../../../../../../theme"
+import styled from "styled-components";
+import { theme } from "../../../../../../theme/theme";
 
 export default function Loader() {
   return (
     <LoaderStyled>
       <span className="title">Chargement en cours ...</span>
     </LoaderStyled>
-  )
+  );
 }
 
 const LoaderStyled = styled.div`
@@ -24,4 +24,4 @@ const LoaderStyled = styled.div`
     font-size: ${theme.fonts.size.P4};
     font-weight: ${theme.fonts.weights.regular};
   }
-`
+`;

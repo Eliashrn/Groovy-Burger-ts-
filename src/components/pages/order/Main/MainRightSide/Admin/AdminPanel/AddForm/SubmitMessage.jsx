@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { theme } from "../../../../../../../../theme"
-import { FiCheck } from "react-icons/fi"
+import React from "react";
+import styled from "styled-components";
+import { theme } from "../../../../../../../../theme/theme";
+import { FiCheck } from "react-icons/fi";
 
 export default function SubmitMessage() {
   return (
@@ -9,7 +9,7 @@ export default function SubmitMessage() {
       <FiCheck className="icon" />
       <span className="message">Ajouté avec succès !</span>
     </SubmitMessageStyled>
-  )
+  );
 }
 
 const SubmitMessageStyled = styled.div`
@@ -32,4 +32,4 @@ const SubmitMessageStyled = styled.div`
     font-size: ${theme.fonts.size.SM};
     color: ${theme.colors.success};
   }
-`
+`;

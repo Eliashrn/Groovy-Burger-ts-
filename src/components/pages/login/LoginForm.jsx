@@ -1,32 +1,32 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import styled from "styled-components"
-import { IoChevronForward } from "react-icons/io5"
-import { BsPersonCircle } from "react-icons/bs"
-import TextInput from "../../reusable-ui/TextInput"
-import Button from "../../reusable-ui/Button"
-import { theme } from "../../../theme"
-import { authenticateUser } from "../../../api/user"
-import Welcome from "./Welcome"
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { IoChevronForward } from "react-icons/io5";
+import { BsPersonCircle } from "react-icons/bs";
+import TextInput from "../../reusable-ui/TextInput";
+import Button from "../../reusable-ui/Button";
+import { theme } from "../../../theme/theme";
+import { authenticateUser } from "../../../api/user";
+import Welcome from "./Welcome";
+import { useState } from "react";
 
 export default function LoginForm() {
   // state
-  const [username, setUsername] = useState("Bob")
-  const navigate = useNavigate()
+  const [username, setUsername] = useState("Bob");
+  const navigate = useNavigate();
 
   // comportements
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const userReceived = await authenticateUser(username)
+    const userReceived = await authenticateUser(username);
 
-    setUsername("")
-    navigate(`order/${userReceived.username}`)
-  }
+    setUsername("");
+    navigate(`order/${userReceived.username}`);
+  };
 
   const handleChange = (event) => {
-    setUsername(event.target.value)
-  }
+    setUsername(event.target.value);
+  };
 
   // affichage
   return (
@@ -46,7 +46,7 @@ export default function LoginForm() {
         <Button label={"Accéder à mon espace"} Icon={<IoChevronForward />} />
       </div>
     </LoginFormStyled>
-  )
+  );
 }
 
 const LoginFormStyled = styled.form`
@@ -77,4 +77,4 @@ const LoginFormStyled = styled.form`
   .input-login {
     margin: 18px 0; // must be handled in Parent
   }
-`
+`;

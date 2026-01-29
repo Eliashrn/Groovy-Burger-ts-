@@ -1,6 +1,6 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { theme } from "../../theme"
+import React from "react";
+import styled, { css } from "styled-components";
+import { theme } from "../../theme/theme";
 
 const TextInput = React.forwardRef(
   ({ onChange, Icon, className, version = "normal", ...extraProps }, ref) => {
@@ -9,11 +9,11 @@ const TextInput = React.forwardRef(
         <div className="icon">{Icon && Icon}</div>
         <input ref={ref} onChange={onChange} type="text" {...extraProps} />
       </TextInputStyled>
-    )
-  }
-)
+    );
+  },
+);
 
-export default TextInput
+export default TextInput;
 const TextInputStyled = styled.div`
   border-radius: ${theme.borderRadius.round};
   display: flex;
@@ -36,12 +36,12 @@ const TextInputStyled = styled.div`
   }
 
   /* ${(props) => {
-    if (props.version === "normal") return extraStyleNormal
-    if (props.version === "minimalist") return extraStyleMinimalist
+    if (props.version === "normal") return extraStyleNormal;
+    if (props.version === "minimalist") return extraStyleMinimalist;
   }} */
 
   ${({ version }) => extraStyle[version]}
-`
+`;
 
 const extraStyleNormal = css`
   background-color: ${theme.colors.white};
@@ -55,7 +55,7 @@ const extraStyleNormal = css`
       background: ${theme.colors.white};
     }
   }
-`
+`;
 
 const extraStyleMinimalist = css`
   background-color: ${theme.colors.background_white};
@@ -70,9 +70,9 @@ const extraStyleMinimalist = css`
       outline: 0; //// add outline
     }
   }
-`
+`;
 
 const extraStyle = {
   normal: extraStyleNormal,
   minimalist: extraStyleMinimalist,
-}
+};
