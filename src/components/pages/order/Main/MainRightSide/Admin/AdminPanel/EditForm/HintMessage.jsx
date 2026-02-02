@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { HiCursorClick } from "react-icons/hi"
-import { theme } from "../../../../../../../../theme"
+import styled from "styled-components";
+import { HiCursorClick } from "react-icons/hi";
+import { theme } from "../../../../../../../../theme/theme";
 
 export default function HintMessage() {
   return (
@@ -8,7 +8,7 @@ export default function HintMessage() {
       <span className="hint">Cliquer sur un produit pour le modifier</span>
       <HiCursorClick />
     </HintMessageStyled>
-  )
+  );
 }
 
 const HintMessageStyled = styled.div`
@@ -24,4 +24,4 @@ const HintMessageStyled = styled.div`
   span {
     margin-right: 10px;
   }
-`
+`;

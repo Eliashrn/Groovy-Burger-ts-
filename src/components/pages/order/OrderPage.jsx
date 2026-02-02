@@ -1,20 +1,20 @@
-import styled from "styled-components"
-import { theme } from "../../../theme"
-import Main from "./Main/Main"
-import Navbar from "./Navbar/Navbar"
-import { initialiseUserSession } from "./helpers/initialiseUserSession"
-import { useEffect } from "react"
-import { useParams } from "react-router-dom"
-import { useOrderContext } from "../../../context/OrderContext"
+import styled from "styled-components";
+import { theme } from "../../../theme/theme";
+import Main from "./Main/Main";
+import Navbar from "./Navbar/Navbar";
+import { initialiseUserSession } from "./helpers/initialiseUserSession";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useOrderContext } from "../../../context/OrderContext";
 
 export default function OrderPage() {
   // state
-  const { username } = useParams()
-  const { setMenu, setBasket } = useOrderContext()
+  const { username } = useParams();
+  const { setMenu, setBasket } = useOrderContext();
 
   useEffect(() => {
-    initialiseUserSession(username, setMenu, setBasket)
-  }, [])
+    initialiseUserSession(username, setMenu, setBasket);
+  }, []);
 
   //affichage (render)
   return (
@@ -24,7 +24,7 @@ export default function OrderPage() {
         <Main />
       </div>
     </OrderPageStyled>
-  )
+  );
 }
 
 const OrderPageStyled = styled.div`
@@ -42,4 +42,4 @@ const OrderPageStyled = styled.div`
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};
   }
-`
+`;

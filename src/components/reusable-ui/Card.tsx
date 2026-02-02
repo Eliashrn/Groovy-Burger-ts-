@@ -1,8 +1,21 @@
-import styled, { css } from "styled-components"
-import { theme } from "../../theme"
-import Button from "./Button"
-import { TiDelete } from "react-icons/ti"
-import { fadeInFromRight, fadeInFromTop } from "../../theme/animations"
+import styled, { css } from "styled-components";
+import { theme } from "../../theme/theme";
+import Button from "./Button";
+import { TiDelete } from "react-icons/ti";
+import { fadeInFromRight, fadeInFromTop } from "../../theme/animations";
+import { ComponentProps } from "react";
+
+type CardProps = {
+  hasDeleteButton?: boolean;
+  onDelete?: React.MouseEventHandler<HTMLButtonElement>;
+  isHoverable?: boolean;
+  isSelected?: boolean;
+  isOverlapImageVisible?: boolean;
+  imageSource: string;
+  leftDescription: string;
+  overlapImageSource?: string;
+  onAdd?: React.MouseEventHandler<HTMLButtonElement>;
+} & ComponentProps<"div">;
 
 export default function Card({
   title,
@@ -16,7 +29,7 @@ export default function Card({
   onAdd,
   overlapImageSource,
   isOverlapImageVisible,
-}) {
+}: CardProps) {
   // state (vide)
 
   // comportements (vide)
@@ -31,7 +44,11 @@ export default function Card({
     >
       <div className="card">
         {hasDeleteButton && (
-          <button className="delete-button" aria-label="delete-button" onClick={onDelete}>
+          <button
+            className="delete-button"
+            aria-label="delete-button"
+            onClick={onDelete}
+          >
             <TiDelete className="icon" />
           </button>
         )}
@@ -40,7 +57,11 @@ export default function Card({
           {isOverlapImageVisible && (
             <div className="overlap">
               <div className="transparent-layer"></div>
-              <img className="overlap-image" src={overlapImageSource} alt="overlap" />
+              <img
+                className="overlap-image"
+                src={overlapImageSource}
+                alt="overlap"
+              />
             </div>
           )}
           <img className="product" src={imageSource} alt={title} />
@@ -62,10 +83,13 @@ export default function Card({
         </div>
       </div>
     </CardStyled>
-  )
+  );
 }
 
-const CardStyled = styled.div`
+const CardStyled = styled.div<{
+  isHoverable?: boolean;
+  isSelected?: boolean;
+}>`
   ${({ isHoverable }) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
   /* border: 1px solid red; */
@@ -202,16 +226,17 @@ const CardStyled = styled.div`
       }
     }
 
-    ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
+    ${({ isHoverable, isSelected }) =>
+      isHoverable && isSelected && selectedStyle}
   }
-`
+`;
 
 const hoverableStyle = css`
   :hover {
     box-shadow: ${theme.shadows.orangeHighlight};
     cursor: pointer;
   }
-`
+`;
 
 const selectedStyle = css`
   background: ${theme.colors.primary};
@@ -268,4 +293,4 @@ const selectedStyle = css`
       }
     }
   }
-`
+`;

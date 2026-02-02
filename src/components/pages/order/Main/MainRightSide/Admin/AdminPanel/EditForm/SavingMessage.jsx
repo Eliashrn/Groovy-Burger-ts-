@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { BsCloudCheck } from "react-icons/bs"
-import { theme } from "../../../../../../../../theme"
+import React from "react";
+import styled from "styled-components";
+import { BsCloudCheck } from "react-icons/bs";
+import { theme } from "../../../../../../../../theme/theme";
 
 export default function SavingMessage() {
   return (
@@ -11,7 +11,7 @@ export default function SavingMessage() {
       </div>
       <span className="sentence">Modifications enregistrées !</span>
     </SavingMessageStyled>
-  )
+  );
 }
 
 const SavingMessageStyled = styled.div`
@@ -24,4 +24,4 @@ const SavingMessageStyled = styled.div`
     display: flex;
     margin: 0 10px;
   }
-`
+`;

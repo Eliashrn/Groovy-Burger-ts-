@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { theme } from "../../../../../theme"
-import Header from "../../../../reusable-ui/Header"
+import styled from "styled-components";
+import { theme } from "../../../../../theme/theme";
+import Header from "../../../../reusable-ui/Header";
 
 export default function BasketFooter() {
   return (
@@ -9,7 +9,7 @@ export default function BasketFooter() {
         <span>Codé avec ❤️ et React.JS</span>
       </BasketFooterStyled>
     </Header>
-  )
+  );
 }
 
 const BasketFooterStyled = styled.div`
@@ -24,4 +24,4 @@ const BasketFooterStyled = styled.div`
     font-weight: ${theme.fonts.weights.bold};
     color: ${theme.colors.white};
   }
-`
+`;

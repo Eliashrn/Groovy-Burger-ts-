@@ -1,6 +1,5 @@
-import React from "react"
-import Button from "../../../../../../../reusable-ui/Button"
-import SubmitMessage from "./SubmitMessage"
+import Button from "../../../../../../../reusable-ui/Button";
+import SubmitMessage from "./SubmitMessage";
 
 export default function SubmitButton({ isSubmitted }) {
   return (
@@ -12,5 +11,5 @@ export default function SubmitButton({ isSubmitted }) {
       />
       {isSubmitted && <SubmitMessage />}
     </>
-  )
+  );
 }
