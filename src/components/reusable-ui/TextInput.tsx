@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef, LegacyRef } from "react";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/theme";
 
@@ -7,18 +7,24 @@ type TextInputProps = {
   version?: "normal" | "minimalist";
 } & ComponentPropsWithRef<"input">;
 
-const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ onChange, Icon, className, version = "normal", ...extraProps }, ref) => {
-    return (
-      <TextInputStyled className={className} version={version}>
-        <div className="icon">{Icon && Icon}</div>
-        <input ref={ref} onChange={onChange} type="text" {...extraProps} />
-      </TextInputStyled>
-    );
-  },
-);
+export default function TextInput(
+  {
+    onChange,
+    Icon,
+    className,
+    version = "normal",
+    ...extraProps
+  }: TextInputProps,
+  ref: LegacyRef<HTMLInputElement> | undefined,
+) {
+  return (
+    <TextInputStyled className={className} version={version}>
+      <div className="icon">{Icon && Icon}</div>
+      <input ref={ref} onChange={onChange} type="text" {...extraProps} />
+    </TextInputStyled>
+  );
+}
 
-export default TextInput;
 const TextInputStyled = styled.div<{ version: "normal" | "minimalist" }>`
   border-radius: ${theme.borderRadius.round};
   display: flex;
