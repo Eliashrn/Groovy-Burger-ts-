@@ -3,6 +3,19 @@ import { theme } from "../../theme/theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 import { fadeInFromRight, fadeInFromTop } from "../../theme/animations";
+import { ComponentProps } from "react";
+
+type CardProps = {
+  hasDeleteButton?: boolean;
+  onDelete?: React.MouseEventHandler<HTMLButtonElement>;
+  isHoverable?: boolean;
+  isSelected?: boolean;
+  isOverlapImageVisible?: boolean;
+  imageSource: string;
+  leftDescription: string;
+  overlapImageSource?: string;
+  onAdd?: React.MouseEventHandler<HTMLButtonElement>;
+} & ComponentProps<"div">;
 
 export default function Card({
   title,
@@ -16,7 +29,7 @@ export default function Card({
   onAdd,
   overlapImageSource,
   isOverlapImageVisible,
-}) {
+}: CardProps) {
   // state (vide)
 
   // comportements (vide)
@@ -73,7 +86,10 @@ export default function Card({
   );
 }
 
-const CardStyled = styled.div`
+const CardStyled = styled.div<{
+  isHoverable?: boolean;
+  isSelected?: boolean;
+}>`
   ${({ isHoverable }) => isHoverable && hoverableStyle}
   border-radius: ${theme.borderRadius.extraRound};
   /* border: 1px solid red; */

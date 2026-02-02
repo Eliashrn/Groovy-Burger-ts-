@@ -3,7 +3,7 @@ import { theme } from "../../theme/theme";
 import { ComponentProps } from "react";
 
 type Option = {
-  optionValue: string | number | readonly string[] | undefined;
+  optionValue?: string | number | readonly string[];
   label: string;
 };
 
