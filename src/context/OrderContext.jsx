@@ -1,8 +1,8 @@
-import { createContext, useContext, useRef, useState } from "react"
-import { useMenu } from "../hooks/useMenu"
-import { useBasket } from "../hooks/useBasket"
-import { findObjectById } from "../utils/array"
-import { EMPTY_PRODUCT } from "../enums/product"
+import { createContext, useContext, useRef, useState } from "react";
+import { useMenu } from "../hooks/useMenu";
+import { useBasket } from "../hooks/useBasket";
+import { findObjectById } from "../utils/array";
+import { EMPTY_PRODUCT } from "../constants/product";
 
 // 1. Création du context
 const OrderContext = createContext({
@@ -34,26 +34,28 @@ const OrderContext = createContext({
   basket: [],
   handleAddToBasket: () => {},
   handleDeleteBasketProduct: () => {},
-})
+});
 
 // 2. Installation du context
 export const OrderContextProvider = ({ children }) => {
-  const [isModeAdmin, setIsModeAdmin] = useState(false)
-  const [isCollapsed, setIsCollapsed] = useState(false)
-  const [currentTabSelected, setCurrentTabSelected] = useState("add")
-  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
-  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT)
-  const titleEditRef = useRef()
-  const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu()
-  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } = useBasket()
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT);
+  const titleEditRef = useRef();
+  const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } =
+    useMenu();
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } =
+    useBasket();
 
   const handleProductSelected = async (idProductClicked) => {
-    const productClickedOn = findObjectById(idProductClicked, menu)
-    await setIsCollapsed(false)
-    await setCurrentTabSelected("edit")
-    await setProductSelected(productClickedOn)
-    titleEditRef.current.focus()
-  }
+    const productClickedOn = findObjectById(idProductClicked, menu);
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    await setProductSelected(productClickedOn);
+    titleEditRef.current.focus();
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -78,10 +80,14 @@ export const OrderContextProvider = ({ children }) => {
     handleAddToBasket,
     handleDeleteBasketProduct,
     handleProductSelected,
-  }
+  };
 
-  return <OrderContext.Provider value={orderContextValue}>{children}</OrderContext.Provider>
-}
+  return (
+    <OrderContext.Provider value={orderContextValue}>
+      {children}
+    </OrderContext.Provider>
+  );
+};
 
 // 3. Consommation du context
-export const useOrderContext = () => useContext(OrderContext)
+export const useOrderContext = () => useContext(OrderContext);

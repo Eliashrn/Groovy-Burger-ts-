@@ -1,4 +1,4 @@
-import { EMPTY_PRODUCT } from "../enums/product";
+import { EMPTY_PRODUCT } from "../constants/product";
 import { BasketProduct } from "../types/Product";
 
 export const EMPTY: BasketProduct[] = [];
