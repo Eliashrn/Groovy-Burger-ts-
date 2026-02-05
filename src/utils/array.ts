@@ -1,19 +1,15 @@
-type ID = {
-  id: string | number;
-};
-
 export const deepClone = <T>(array: T[]): T[] => {
   return JSON.parse(JSON.stringify(array));
 };
 
-export const findObjectById = <T extends { id: ID }>(
-  id: ID,
+export const findObjectById = <T extends { id: string }>(
+  id: string,
   array: T[],
 ): T | undefined => {
   return array.find((itemInArray) => itemInArray.id === id);
 };
 
-export const findIndexById = <T extends { id: ID }, U>(
+export const findIndexById = <T extends { id: string }, U>(
   idWithUnknownIndex: U,
   array: T[],
 ): number => {
@@ -22,8 +18,8 @@ export const findIndexById = <T extends { id: ID }, U>(
   );
 };
 
-export const removeObjectById = <T extends { id: ID }>(
-  idOfItemToRemove: ID,
+export const removeObjectById = <T extends { id: string }>(
+  idOfItemToRemove: string,
   array: T[],
 ): T[] => {
   return array.filter((item) => item.id !== idOfItemToRemove);
