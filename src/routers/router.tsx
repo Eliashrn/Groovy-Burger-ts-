@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
+//@ts-ignore
 import LoginPage from "../components/pages/login/LoginPage";
+//@ts-ignore
 import OrderPage from "../components/pages/order/OrderPage";
+//@ts-ignore
 import ErrorPage from "../components/pages/error/ErrorPage";
 
 const routes = [

@@ -11,11 +11,11 @@ import { useState } from "react";
 
 export default function LoginForm() {
   // state
-  const [username, setUsername] = useState("Bob");
+  const [username, setUsername] = useState<string>("Bob");
   const navigate = useNavigate();
 
   // comportements
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const userReceived = await authenticateUser(username);
@@ -24,7 +24,7 @@ export default function LoginForm() {
     navigate(`order/${userReceived.username}`);
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
