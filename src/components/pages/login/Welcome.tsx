@@ -1,5 +1,3 @@
-import React from "react"
-
 export default function Welcome() {
   return (
     <div>
@@ -7,5 +5,5 @@ export default function Welcome() {
       <hr />
       <h2>Connectez-vous</h2>
     </div>
-  )
+  );
 }
