@@ -1,12 +1,12 @@
-import styled from "styled-components"
-import Profile from "./Profile"
-import ToggleButton from "../../../reusable-ui/ToggleButton"
-import ToastAdmin from "./ToastAdmin"
-import { toast } from "react-toastify"
-import { useOrderContext } from "../../../../context/OrderContext"
+import styled from "styled-components";
+import Profile from "./Profile";
+import ToggleButton from "../../../reusable-ui/ToggleButton";
+import ToastAdmin from "./ToastAdmin";
+import { toast } from "react-toastify";
+import { useOrderContext } from "../../../../context/OrderContext";
 
 export default function NavbarRightSide() {
-  const { isModeAdmin, setIsModeAdmin } = useOrderContext()
+  const { isModeAdmin, setIsModeAdmin } = useOrderContext();
 
   const displayToastNotification = () => {
     if (!isModeAdmin) {
@@ -20,10 +20,10 @@ export default function NavbarRightSide() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-      })
+      });
     }
-    setIsModeAdmin(!isModeAdmin)
-  }
+    setIsModeAdmin(!isModeAdmin);
+  };
 
   return (
     <NavbarRightSideStyled>
@@ -36,11 +36,11 @@ export default function NavbarRightSide() {
       <Profile />
       <ToastAdmin />
     </NavbarRightSideStyled>
-  )
+  );
 }
 
 const NavbarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
   padding-right: 50px;
-`
+`;
