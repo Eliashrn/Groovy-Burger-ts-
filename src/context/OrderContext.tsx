@@ -41,7 +41,7 @@ type OrderContextValue = {
 };
 
 // 1. Création du context
-const OrderContext = createContext<OrderContextValue | null>(null);
+const OrderContext = createContext<OrderContextValue | undefined>(undefined);
 
 // 2. Installation du context
 export const OrderContextProvider = ({ children }: PropsWithChildren) => {
@@ -102,4 +102,11 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
 };
 
 // 3. Consommation du context
-export const useOrderContext = () => useContext(OrderContext);
+export const useOrderContext = () => {
+  const orderContextData = useContext(OrderContext);
+  if (orderContextData === undefined)
+    throw new Error(
+      "useOrdrContext can only be use within orderContextProvider",
+    );
+  return orderContextData;
+};

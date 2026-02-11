@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { theme } from "../../../theme/theme";
-import Main from "./Main/Main";
+//@ts-ignore
+import Main from "./Main/Main.jsx";
 import Navbar from "./Navbar/Navbar";
-import { initialiseUserSession } from "./helpers/initialiseUserSession";
+//@ts-ignore
+import { initialiseUserSession } from "./helpers/initialiseUserSession.jsx";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useOrderContext } from "../../../context/OrderContext";
