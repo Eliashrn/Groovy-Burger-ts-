@@ -33,10 +33,6 @@ export default function BasketProducts() {
     if (username) handleDeleteBasketProduct(id, username);
   };
 
-  const handleCardClick = (isModeAdmin: boolean, BasketProductid: string) => {
-    isModeAdmin && handleProductSelected(BasketProductid);
-  };
-
   return (
     <TransitionGroup
       component={BasketProductsStyled}
@@ -67,9 +63,7 @@ export default function BasketProducts() {
                       handleOnDelete(event, basketProduct.id)
                     }
                     isClickable={isModeAdmin}
-                    onClick={() =>
-                      handleCardClick(isModeAdmin, basketProduct.id)
-                    }
+                    onClick={() => handleProductSelected(basketProduct.id)}
                     isSelected={checkIfProductIsClicked(
                       basketProduct.id,
                       productSelected.id,
