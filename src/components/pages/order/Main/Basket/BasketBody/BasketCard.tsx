@@ -12,8 +12,8 @@ type BasketCardProps = {
   imageSource: string;
   className?: string;
   isClickable?: boolean;
-  onClick?: () => React.MouseEventHandler<HTMLDivElement> | undefined;
-  onDelete?: () => React.MouseEventHandler<HTMLDivElement> | undefined;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onDelete?: React.MouseEventHandler<HTMLDivElement>;
   isSelected?: boolean;
   isPublicised?: boolean;
 };
