@@ -3,9 +3,10 @@ import { theme } from "../../theme/theme";
 import Button from "./Button";
 import { TiDelete } from "react-icons/ti";
 import { fadeInFromRight, fadeInFromTop } from "../../theme/animations";
-import { ComponentProps } from "react";
 
 type CardProps = {
+  title: string;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
   hasDeleteButton?: boolean;
   onDelete?: React.MouseEventHandler<HTMLButtonElement>;
   isHoverable?: boolean;
@@ -15,7 +16,7 @@ type CardProps = {
   leftDescription: string;
   overlapImageSource?: string;
   onAdd?: React.MouseEventHandler<HTMLButtonElement>;
-} & ComponentProps<"div">;
+};
 
 export default function Card({
   title,

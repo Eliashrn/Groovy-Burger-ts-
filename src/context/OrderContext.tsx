@@ -58,15 +58,13 @@ export const OrderContextProvider = ({ children }: PropsWithChildren) => {
     useBasket();
 
   const handleProductSelected = async (idProductClicked: string) => {
-    if (menu) {
-      const productClickedOn = findObjectById(idProductClicked, menu);
-
-      if (!productClickedOn) return;
-      await setIsCollapsed(false);
-      await setCurrentTabSelected("edit");
-      await setProductSelected(productClickedOn);
-      titleEditRef.current && titleEditRef.current.focus();
-    }
+    if (!menu || !isModeAdmin) return;
+    const productClickedOn = findObjectById(idProductClicked, menu);
+    if (!productClickedOn) return;
+    await setIsCollapsed(false);
+    await setCurrentTabSelected("edit");
+    await setProductSelected(productClickedOn);
+    titleEditRef.current && titleEditRef.current.focus();
   };
 
   const orderContextValue = {
