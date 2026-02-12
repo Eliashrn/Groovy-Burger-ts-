@@ -5,6 +5,19 @@ import { theme } from "../../../../../../theme/theme";
 import CasinoEffect from "../../../../../reusable-ui/CasinoEffect";
 import Sticker from "../../../../../reusable-ui/Sticker";
 
+type BasketCardProps = {
+  title: string;
+  price: string;
+  quantity: number;
+  imageSource: string;
+  className?: string;
+  isClickable?: boolean;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onDelete?: React.MouseEventHandler<HTMLDivElement>;
+  isSelected?: boolean;
+  isPublicised?: boolean;
+};
+
 export default function BasketCard({
   title,
   price,
@@ -16,7 +29,7 @@ export default function BasketCard({
   onDelete,
   isSelected,
   isPublicised,
-}) {
+}: BasketCardProps) {
   return (
     <BasketCardStyled
       className={className}
@@ -46,7 +59,10 @@ export default function BasketCard({
   );
 }
 
-const BasketCardStyled = styled.div`
+const BasketCardStyled = styled.div<{
+  isClickable?: boolean;
+  isSelected?: boolean;
+}>`
   cursor: ${({ isClickable }) => (isClickable ? "pointer" : "auto")};
   /* border: 1px solid red; */
   box-sizing: border-box;
